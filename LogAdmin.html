@@ -97,16 +97,43 @@
 <body>
     <div class="form-container">
         <h2>Admin Login</h2>
-        <form action="AdminLog" method="post">
-            <input type="text" name="au" placeholder="Enter Username" required />
-            <input type="password" name="ap" placeholder="Enter Password" required />
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Enter Username" required />
+            <input type="password" id="password" placeholder="Enter Password" required />
             <br />
             <button type="submit" class="button">Submit</button>
             <button type="reset" class="button1">Reset</button>
         </form>
-        <form action="index.html" method="post">
-            <button type="submit" class="button2">Go Back to Main Page</button>
-        </form>
+        <button onclick="goBack()" class="button2">Go Back to Main Page</button>
     </div>
+
+    <script>
+        // Hardcoded credentials for demonstration
+        const validUsername = "admin";
+        const validPassword = "password123";
+
+        // Handle form submission
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent form from refreshing the page
+
+            // Get input values
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Validate credentials
+            if (username === validUsername && password === validPassword) {
+                // Redirect to another page
+                window.location.href = "Success.html";
+            } else {
+                // Show an error message
+                alert("Invalid username or password. Please try again.");
+            }
+        });
+
+        // Go back to the main page
+        function goBack() {
+            window.location.href = "index.html";
+        }
+    </script>
 </body>
 </html>
