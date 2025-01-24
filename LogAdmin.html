@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>Login Page with CAPTCHA</title>
     <style>
         /* General Body Styling */
         body {
@@ -92,6 +92,32 @@
         .form-container .button2:active {
             transform: scale(0.98);
         }
+
+        /* CAPTCHA Styling */
+        .captcha-container {
+            margin: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .captcha-code {
+            font-size: 18px;
+            font-weight: bold;
+            font-style: italic;
+            color: #2980b9;
+            background-color: #ecf0f1;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .captcha-refresh {
+            margin-left: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #3498db;
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -100,6 +126,15 @@
         <form id="loginForm">
             <input type="text" id="username" placeholder="Enter Username" required />
             <input type="password" id="password" placeholder="Enter Password" required />
+
+            <div class="captcha-container">
+                <span class="captcha-code" id="captchaCode">12345</span>
+                <!-- <span class="captcha-refresh" onclick="generateCaptcha()">Refresh</span> -->
+                <!-- <input type="text" id="captchaInput" placeholder="Enter CAPTCHA" required /> -->
+                <span class="captcha-refresh" onclick="generateCaptcha()">Refresh</span>
+            </div>
+            <input type="text" id="captchaInput" placeholder="Enter CAPTCHA" required />
+
             <br />
             <button type="submit" class="button">Submit</button>
             <button type="reset" class="button1">Reset</button>
@@ -109,23 +144,32 @@
 
     <script>
         // Hardcoded credentials for demonstration
-        const validUsername = "admin";
-        const validPassword = "password123";
+        const validUsername = "admin@gmail.com";
+        const validPassword = "Doit@123";
 
-        // Handle form submission
+        // Generate CAPTCHA
+        function generateCaptcha() {
+            const captcha = Math.floor(10000 + Math.random() * 90000); // Random 5-digit number
+            document.getElementById('captchaCode').textContent = captcha;
+        }
+
+        // Validate form and CAPTCHA
         document.getElementById('loginForm').addEventListener('submit', function (event) {
             event.preventDefault(); // Prevent form from refreshing the page
 
             // Get input values
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
+            const captchaInput = document.getElementById('captchaInput').value;
+            const captchaCode = document.getElementById('captchaCode').textContent;
 
-            // Validate credentials
-            if (username === validUsername && password === validPassword) {
+            // Validate credentials and CAPTCHA
+            if (username === validUsername && password === validPassword && captchaInput === captchaCode) {
                 // Redirect to another page
                 window.location.href = "Success.html";
+            } else if (captchaInput !== captchaCode) {
+                alert("CAPTCHA is incorrect. Please try again.");
             } else {
-                // Show an error message
                 alert("Invalid username or password. Please try again.");
             }
         });
@@ -134,6 +178,9 @@
         function goBack() {
             window.location.href = "index.html";
         }
+
+        // Initialize CAPTCHA on page load
+        generateCaptcha();
     </script>
 </body>
 </html>
