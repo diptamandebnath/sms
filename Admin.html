@@ -35,7 +35,7 @@
             align-items: center;
         }
 
-        .form-button input[type="submit"] {
+        .form-button input[type="button"] {
             padding: 15px 50px;
             font-size: 1.2rem;
             font-weight: 600;
@@ -49,12 +49,12 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .form-button input[type="submit"]:hover {
+        .form-button input[type="button"]:hover {
             transform: translateY(-5px);
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
         }
 
-        .form-button input[type="submit"]:active {
+        .form-button input[type="button"]:active {
             transform: scale(0.95);
             box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
         }
@@ -75,22 +75,43 @@
             text-decoration: underline;
         }
     </style>
+    <script>
+        // Redirect user to login page if not logged in
+        document.addEventListener("DOMContentLoaded", () => {
+            const isLoggedIn = localStorage.getItem("loggedIn");
+            if (!isLoggedIn || isLoggedIn !== "true") {
+                localStorage.setItem("loggedIn", "true");
+                window.location.href = "LogAdmin.html"; // Redirect to login page
+            
+            }
+        });
+
+        // Optional: Logout function to clear login status
+        function logout() {
+            localStorage.removeItem("loggedIn");
+            window.location.href = "LogAdmin.html";
+            
+        }
+    </script>
 </head>
 <body>
     <h1>Admin Panel</h1>
     <div class="button-container">
-        <form action="Stock.html" method="" class="form-button">
-            <input type="submit" value="Update Stock">
+        <form action="Stock.html" method="post" class="form-button">
+            <input type="button" value="Update Stock" onclick="window.location.href='Stock.html'">
         </form>
-        <form action="Allot.html" method="" class="form-button">
-            <input type="submit" value="Allot Stock">
+        <form action="Allot.html" method="post" class="form-button">
+            <input type="button" value="Allot Stock" onclick="window.location.href='Allot.html'">
         </form>
-        <form action="index.html" method="" class="form-button">
-            <input type="submit" value="Go Back to Main Page">
+        <form action="index.html" method="post" class="form-button">
+            <input type="button" value="Go Back to Main Page" onclick="window.location.href='index.html'">
         </form>
+        <div class="form-button">
+            <input type="button" value="Logout" onclick="logout()">
+        </div>
     </div>
     <footer>
-        <p>Designed with ❤️ by Students of DoIT, TU</p>
+        <p>Designed with ❤️ by <a href="#">Your Name</a></p>
     </footer>
 </body>
 </html>
