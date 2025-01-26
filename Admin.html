@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: #fff;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -19,63 +21,58 @@
         }
 
         h1 {
-            font-size: 3rem;
-            font-weight: bold;
-            color: #ff8c00;
-            margin-bottom: 30px;
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 40px;
             text-align: center;
+            text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
         }
 
         .button-container {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 25px;
             align-items: center;
         }
 
-        .button {
-            display: inline-block;
-            padding: 15px 40px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #ffffff;
-            background-color: #007bff;
-            border: none;
-            border-radius: 8px;
-            text-transform: uppercase;
-            text-align: center;
-            cursor: pointer;
-            text-decoration: none;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease-in-out;
-        }
-
-        .button:hover {
-            background-color: #0056b3;
-            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .button:active {
-            transform: scale(0.95);
-        }
-
-        .form-button {
-            text-align: center;
-        }
-
         .form-button input[type="submit"] {
-            background-color: #28a745;
-            border: none;
-            padding: 10px 30px;
-            font-size: 1rem;
+            padding: 15px 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
             color: #fff;
-            border-radius: 5px;
+            background: linear-gradient(135deg, #ff8c00, #ff6b6b);
+            border: none;
+            border-radius: 50px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            text-transform: uppercase;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .form-button input[type="submit"]:hover {
-            background-color: #218838;
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .form-button input[type="submit"]:active {
+            transform: scale(0.95);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        footer a {
+            color: #ff6b6b;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -92,5 +89,8 @@
             <input type="submit" value="Go Back to Main Page">
         </form>
     </div>
+    <footer>
+        <p>Designed with ❤️ by Students of DoIT, TU</p>
+    </footer>
 </body>
 </html>
