@@ -1,103 +1,96 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin Panel</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
 
-    <style type="text/css">
-        
-    .button {
-    position: relative;
-    padding: 40px 80px;
-    margin: 20px 80px 50px 50px;
-    float: left;
-    border-radius: 10px;
-    font-family: 'Helvetica', cursive;
-    font-size: 30px;
-    color: #FFF;
-    size:A4 ;
-    text-transform: uppercase;
-    text-decoration: none;  
-    background-color: #3498DB;
-    border-bottom: 5px solid #2980B9;
-    text-shadow: 0px -2px #2980B9;
-    /* Animation */
-    transition: all 0.1s;
-    -webkit-transition: all 0.1s;
+        h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #ff8c00;
+            margin-bottom: 30px;
+            text-align: center;
+        }
 
-    }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
 
-.button:hover, 
-.button:focus {
-    text-decoration: none;
-    color: #fff;
-}
+        .button {
+            display: inline-block;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 8px;
+            text-transform: uppercase;
+            text-align: center;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
 
-.button:active {
-    transform: translate(0px,5px);
-    -webkit-transform: translate(0px,5px);
-    border-bottom: 1px solid;
+        .button:hover {
+            background-color: #0056b3;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        }
 
-}
-h1{  
-     
-                font-size: 250%;
-                font: monospace;
-                font-family: sans-serif;
-         color: darkorange       
-}
-body{
-                background-image: url("images.jpg");
-                background-repeat: no-repeat;
-                   position: fixed;
-  top: 50%;
-  left: 50%;
-  background-position : top;
-  
-  transform: translate(-50%, -50%);
+        .button:active {
+            transform: scale(0.95);
+        }
 
-  
- 
-  
-}
+        .form-button {
+            text-align: center;
+        }
 
+        .form-button input[type="submit"] {
+            background-color: #28a745;
+            border: none;
+            padding: 10px 30px;
+            font-size: 1rem;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
 
-</style>
-  
-         <br>
-         <br>
-         <br>
-         <br>
-         <br>
-         <br>
-         <br>
-         <br>
-         
-  <div align="center"> <h1>ADMIN PANEL</h1>
-             </div>
-         
-  
-         
-         <label class="button"> 
-             
-             <form action="Stock.html" method="post">
-             <input type="submit" value="UPDATE STOCK"/>
-             
-         </form>
-         
-         <br>
-         <form action="Allot.html" method="post">
-             <input type="submit" value="ALLOT STOCK"/>
-             
-         </form>
-         <br>       
-         <form action="index.html" method="post">
-             <input type="submit" value="GO BACK TO MAIN PAGE">
-         </form>         
-     
-         
-</label>
-         
-    </html>
+        .form-button input[type="submit"]:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <h1>Admin Panel</h1>
+    <div class="button-container">
+        <form action="Stock.html" method="post" class="form-button">
+            <input type="submit" value="Update Stock">
+        </form>
+        <form action="Allot.html" method="post" class="form-button">
+            <input type="submit" value="Allot Stock">
+        </form>
+        <form action="index.html" method="post" class="form-button">
+            <input type="submit" value="Go Back to Main Page">
+        </form>
+    </div>
+</body>
+</html>
